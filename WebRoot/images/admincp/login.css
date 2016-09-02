@@ -1,0 +1,56 @@
+/* CSS Document */
+/* fonts */
+body,th,td,p,div,span,a,input,select,textarea,ul,ol,dl,h1,h2,h3,h4,h5,h6,li,big,small,b{font-family:Arial,Helvetica,FreeSans,"Luxi-sans","Nimbus Sans L",sans-serif}
+
+/* font sizes */
+.smaller,.smaller a,small,.small,small span,.small span,.small a,small a,div.sitelinks,div.sitelinks a,div.footlinks,div.footlinks a{font-size:11px}
+body,th,td,p,div,span,a,ul,ol,dl,li,select,input,textarea{font-size:12px}
+h1,h2,h3,h1 span,h2 span,h3 span,h1 a,h2 a,h3 a,.xxbig,.xxbig span,.xxbig a{font-size:15px}
+
+/* generic */
+body{text-align:center; margin-left:auto; margin-right:auto; width:630px;}
+body,th,td,p,h5,h5 a,h6,h6 a,h5 span,h6 span,h1,h2,h3,h1 span,h2 span,h3 span,h1 a,h2 a,h3 a,h4,h4 span,h4 a{color:#FFF}
+h1,h2,h3,h4,h5,h6{margin:3px 0 0 0;padding:0;text-decoration:none}
+a{text-decoration:none}
+a:visited,a:visited code{color:#917E9C}
+a:link,a.named:visited,div.sitelinks a:visited{color:#3E6B8A}
+a:hover{text-decoration:underline}
+form{display:inline}
+form,select,input,textarea,ul li{margin:0;padding:0}
+.footer{float:left; width:100%; text-align:center;}
+
+/*IE 6 */
+* html #a5 ul li.hasmenu,* html #a5 .a5menuw1,* html #a5 .a5menuw2,* html #a5 .a5menux2, * html div.a1 .a1menux1,* html div.a1 .a1menuw1,* html div.a1menuw2,* html span.toolbarlinks a.k2over,* html .siteid a.language-select,* html .a1 ul.bluearrows li,* html .a2w1,* html .a2w2,* html .a2w3,* html #searchfield,* html .searchfield,* html div.a2m,* html div.a2m ul,* html #mtopics li.a2mshow,* html #mtopics li:hover,* html .a2 .cornerTL,* html .a2 .cornerTR,* html .a2 .cornerBL,* html td.a2mshow,* html td.navlinks:hover{background-image:url("a1a2_sprite.gif")}
+* html .a2 *{zoom:1}
+
+/* a0v2 */
+html{background:url("sunhome_bg_sprite.png") 0 -2661px repeat-x #134363}
+
+/* hp0 */
+.hp0{float:left}
+.hp0v0{width:179px}
+.hp0v1,.hp0v3,.hp0w1,.hp0w2{width:770px;height:552px;background:url("sunhome_bg_sprite.png") 0 -1713px repeat-x;margin:10px 0 0 8px;_margin-left:3px;padding:0;position:relative}
+.hp0w1,.hp0w2{background-position:0 -594px;background-repeat:no-repeat;margin:0}
+.hp0w2{background-position:100% -1150px}
+.hp0v2{width:957px;height:551px;margin:10px 0 0 0;padding:0;position:relative}
+.hp0v3,.hp0v3 .hp0w1,.hp0v3 .hp0w2{height:321px}
+.hp0v2 .hp0w1,.hp0v2 .hp0w2{background:transparent}
+.hp0v4{clear:both;background:url("sunhome_bg_sprite.png") 0 -2034px repeat-x; margin-top:100px;}
+.hp0v4 .hp0w3{float:left;background:url("sunhome_bg_sprite.png") 0 -915px no-repeat}
+.hp0v4 .hp0w4{width:630px;float:left;text-align:left;background:url("sunhome_bg_sprite.png") 100% -1471px no-repeat}
+
+/* hp4 */
+.hp4{float:left;top:321px;position:relative}
+.hp4w1,.hp4w2,.hp4w3{width:501px;height:198px;background:url("sunhome_bg_sprite.png") 0 -198px repeat-x;margin:4px 0 0 10px;padding:0}
+.hp4w2,.hp4w3{background-position:0 0;background-repeat:no-repeat;margin:0}
+.hp4w3{background-position:100% -396px;padding:1px 0px 0px 0;height:197px}
+.hp4w4{padding:0 5px 0 8px;height:197px;overflow:auto}
+.hp4 h2{margin:0;padding:0;*padding-bottom:4px;width:480px}
+.hp4 h2 a{font-weight:normal;color:#fff !important;display:block;margin:7px 0 0 10px;padding:1px 0 3px 23px;background:url("hp_sprite.gif") -183px -174px no-repeat}
+.hp4 h2 a:hover{text-decoration:none}
+.hp4 a {color:#f8d583}
+.hp4v1{top:0}
+.hp4v1 .hp4w1,.hp4v1 .hp4w2,.hp4v1 .hp4w3{width:610px}
+
+/* ie */
+* html .hp4bubble p,* html .hp4bubble .hp4x1,* html .hp4bubble .hp4x2,* html div.bluearrows,* html span.bluearrows,* html a.bluearrows,* html .chevron,* html body.a0v2,* html #a5 ul li a#pwdby,* html #a5 ul li span#pwdby,* html div.a1 .a1menux1,* html div.a1 .a1menuw1,* html div.a1menuw2,* html span.toolbarlinks a.k2over,* html .siteid a.language-select,* html ul.bluearrows li,* html .a2w1,* html .a2w2,* html .a2w3,* html #searchfield,* html .searchfield,* html div.a2m,* html div.a2m ul,* html #mtopics li.a2mshow,* html #mtopics li:hover,* html .a2 .cornerTL,* html .a2 .cornerTR,* html .a2 .cornerBL,* html td.a2mshow,* html td.navlinks:hover{background-image:url("a1a2_sprite_home.gif")}

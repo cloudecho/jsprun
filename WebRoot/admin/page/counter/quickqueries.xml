@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplequeries>
+	<simplequerie id="1" uid="0" comment="快速开启论坛版块功能" sql=""/>
+	<simplequerie id="2" uid="1" comment="开启 所有版块 主题回收站" sql="UPDATE {tablepre}forums SET recyclebin='1'"/>
+	<simplequerie id="3" uid="1" comment="开启 所有版块 JspRun! 代码" sql="UPDATE {tablepre}forums SET allowbbcode='1'"/>
+	<simplequerie id="4" uid="1" comment="开启 所有版块 [IMG] 代码" sql="UPDATE {tablepre}forums SET allowimgcode='1'"/>
+	<simplequerie id="5" uid="1" comment="开启 所有版块 Smilies 代码" sql="UPDATE {tablepre}forums SET allowsmilies='1'"/>
+	<simplequerie id="6" uid="1" comment="开启 所有版块 内容干扰码" sql="UPDATE {tablepre}forums SET jammer='1'"/>
+	<simplequerie id="7" uid="1" comment="开启 所有版块 允许匿名发贴" sql="UPDATE {tablepre}forums SET allowanonymous='1'"/>
+	<simplequerie id="8" uid="1" comment="开启 所有版块 财付通求购按钮" sql="UPDATE {tablepre}forums SET allowpaytoauthor='1'"/>
+	<simplequerie id="9" uid="0" comment="快速关闭论坛版块功能" sql=""/>
+	<simplequerie id="10" uid="9" comment="关闭 所有版块 主题回收站" sql="UPDATE {tablepre}forums SET recyclebin='0'"/>
+	<simplequerie id="11" uid="9" comment="关闭 所有版块 HTML 代码" sql="UPDATE {tablepre}forums SET allowhtml='0'"/>
+	<simplequerie id="12" uid="9" comment="关闭 所有版块 JspRun! 代码" sql="UPDATE {tablepre}forums SET allowbbcode='0'"/>
+	<simplequerie id="13" uid="9" comment="关闭 所有版块 [IMG] 代码" sql="UPDATE {tablepre}forums SET allowimgcode='0'"/>
+	<simplequerie id="14" uid="9" comment="关闭 所有版块 Smilies 代码" sql="UPDATE {tablepre}forums SET allowsmilies='0'"/>
+	<simplequerie id="15" uid="9" comment="关闭 所有版块 内容干扰码" sql="UPDATE {tablepre}forums SET jammer='0'"/>
+	<simplequerie id="16" uid="9" comment="关闭 所有版块 允许匿名发贴" sql="UPDATE {tablepre}forums SET allowanonymous='0'"/>
+	<simplequerie id="17" uid="9" comment="关闭 所有版块 财付通求购按钮" sql="UPDATE {tablepre}forums SET allowpaytoauthor='0'"/>
+	<simplequerie id="18" uid="0" comment="会员操作相关" sql=""/>
+	<simplequerie id="19" uid="18" comment="清除 所有会员 自定义风格" sql="UPDATE {tablepre}members SET styleid='0'"/>
+	<simplequerie id="20" uid="18" comment="清空 所有会员 积分交易记录" sql="TRUNCATE {tablepre}creditslog;"/>
+	<simplequerie id="21" uid="18" comment="清空 所有会员 收藏夹" sql="TRUNCATE {tablepre}favorites;"/>
+</simplequeries>

@@ -1,0 +1,141 @@
+#dragform {
+	background: #FFFFDD;
+	border: 1px solid #A5B531;
+	height: 90px;
+	margin: 0px auto;
+	text-align: left;
+}
+#dragform #panel {
+	font-size: 12px;
+	margin-top: 10px;
+	width: 100%;
+	min-width: 780px;
+}
+#dragform #panel {
+	width: expression(document.body.clientWidth < 780 ? "780" : "100%" );
+}
+#dragform #panel th {
+	background: #FFFFDD;
+	font-weight: normal;
+	text-align: left;
+}
+#dragform a {
+	color: #000;
+	text-decoration: none;
+}
+#dragform a:hover {
+	color: #FF8000;
+	text-decoration: underline;
+}
+#dragform table.menu {
+	border-left: 1px solid #4C8101;
+	border-spacing: 0px;
+	border-top: 1px solid #4C8101;
+	margin-left: 35px;
+}
+#dragform .menu a {
+	color: #000;
+}
+#dragform .menu td {
+	background: #EDFFB6;
+	border-bottom: 1px solid #4C8101;
+	border-right: 1px solid #4C8101;
+	font-size: 12px;
+	padding: 10px;
+}
+#dragform .save {
+	border: 1px solid #A5B531;
+	margin-right: 15px;
+	margin-top: 8px;
+	width: 400px;
+}
+#dragform .save div {
+	font-size: 14px;
+	font-weight: bold;
+	margin-top: 8px;
+	text-align: center;
+}
+#dragform .save img {
+	vertical-align: middle;
+}
+#dragform .save a {
+	color: #A5B531;
+}
+#dragform .save b {
+	background: #FFFFDD;
+	color: #A5B531;
+	font-weight: normal;
+	left: 0px;
+	margin-left: 50px;
+	margin-right: 50px;
+	position: relative;
+	top: 8px;
+}
+#dragform .save u {
+	color: #F00;
+	text-decoration: none;
+}
+.dragdiv {
+	display: inline-block;
+}
+.dragdiv .header {
+	cursor: move;
+}
+.dragdel {
+	cursor: pointer;
+}
+.dragtext div {
+	margin: 10px;
+	text-align: center;
+}
+.dragdiv .module {
+	border: 1px dotted #000000;
+}
+#parenttable {
+	overflow: hidden;
+}
+.tempDIV {
+	cursor: move;
+	position: absolute;
+	z-index: 10;
+}
+.tempDIV .module {
+	border: 1px solid #000000;
+}
+.cp_menu {
+	background: #FFFFDD;
+	border: 1px solid #4C8101;
+	padding: 10px;
+	text-align: left;
+	font-size: 12px;
+}
+.cp_menu td {
+	background: #FFFFDD;
+	font-size: 12px;
+}
+.cp_menu .title {
+	border-bottom: 1px dotted #000000;
+	margin-bottom: 5px;
+}
+.cp_menu input {
+	height: 21px;
+	font-weight: normal;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+}
+.cp_menu .radio, .cp_menu .checkbox {
+	background: none;
+	border: 0;
+}
+#basemenu_menu {
+	width: 400px;
+}
+#stylemenu_menu {
+	width: 500px;
+}
+#modulemenu_menu {
+	width: 150px;
+}
+#layoutmenu_menu {
+	width: 150px;
+}

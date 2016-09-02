@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" >
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+    	
+    	<property name="hibernate.c3p0.max_size">50</property>
+    	
+    	<property name="hibernate.c3p0.min_size">2</property>
+    	
+		<property name="hibernate.c3p0.initialPoolSize">2</property>
+    	
+    	<property name="hibernate.c3p0.timeout">120</property>
+    	
+    	<property name="hibernate.c3p0.max_statements">100</property>
+    	
+    	<property name="hibernate.c3p0.idle_test_period">120</property>
+    	
+    	<property name="hibernate.c3p0.acquire_increment">2</property>
+    	
+    	<property name="hibernate.c3p0.maxIdleTime">180</property> 
+		
+		<property name="current_session_context_class">thread</property>
+		<property name="hbm2ddl.auto">none</property>
+		<property name="show_sql">false</property>
+		<property name="connection.useUnicode">true</property>
+		<property name="connection.characterEncoding">UTF-8</property>
+		<property name="connection.characterSetResults">UTF-8</property>
+
+		<mapping resource="cn/jsprun/domain/Access.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Activities.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Activityapplies.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Adminactions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Admingroups.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Adminnotes.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Adminsessions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Advertisements.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Announcements.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Attachments.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Attachpaymentlog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Attachtypes.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Banned.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Bbcodes.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Buddys.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Caches.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Creditslog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Crons.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Debateposts.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Debates.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Failedlogins.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Faqs.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Favorites.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Forumfields.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Forumlinks.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Forumrecommend.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Forums.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Imagetypes.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Invites.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Itempool.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Magiclog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Magicmarket.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Magics.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Medals.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Memberfields.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Membermagics.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Members.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Memberspaces.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Moderators.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Modworks.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Myposts.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Mythreads.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Onlinelist.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Onlinetime.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Orders.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Paymentlog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Pluginhooks.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Plugins.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Pluginvars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Pms.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Pmsearchindex.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Polloptions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Polls.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Posts.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Profilefields.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Projects.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Promotions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Ranks.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Ratelog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Regips.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Relatedthreads.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Rewardlog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Rsscaches.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Searchindex.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Sessions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Settings.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Smilies.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Spacecaches.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Stats.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Statvars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Styles.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Stylevars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Subscriptions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Tags.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Templates.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Threads.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Threadsmod.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Threadtags.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Threadtypes.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Tradecomments.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Tradelog.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Tradeoptionvars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Trades.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Typemodels.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Typeoptions.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Typeoptionvars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Typevars.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Usergroups.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Validating.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Videos.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Videotags.hbm.xml" />
+		<mapping resource="cn/jsprun/domain/Words.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,167 @@
+<script>
+varname = location.search.substr(1);
+function getcolor(event) {
+	var hex = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+	if(event.clientX > 164 || event.clientY > 164) {
+		return;
+	}
+	var hsv = new Object();
+	var h = 164;
+	var y = event.clientY;
+	hsv.h = 360 * event.clientX / 164;
+	if (y > h/2) {
+		hsv.s = 1.0;
+		hsv.v = 2 * (h - y) / h;
+	}
+	else {
+		hsv.v = 1.0;
+		hsv.s = y / (h/2);
+	}
+	var rgb = hsvToRgb(hsv);
+	var red   = Math.round(255 * rgb.r);
+	var green = Math.round(255 * rgb.g);
+	var blue  = Math.round(255 * rgb.b);
+	hexstr = '#' + hex[(red - (red % 16)) / 16].toString() + hex[red % 16].toString()
+		 + hex[(green - (green % 16)) / 16].toString() + hex[green % 16].toString()
+		 + hex[(blue - (blue % 16)) / 16].toString() + hex[blue % 16].toString()
+	document.getElementById('box').style.backgroundColor = hexstr;
+	document.getElementById('colorhex').value = hexstr;
+}
+
+function hsvToRgb(hsv) {
+	var rgb = new Object();
+	var i, f, p, q, t;
+
+	if(hsv.s == 0) {
+		// achromatic (grey)
+		rgb.r = rgb.g = rgb.b = hsv.v;
+		return rgb;
+	}
+	hsv.h /= 60;
+	i = Math.floor( hsv.h );
+	f = hsv.h - i;
+	p = hsv.v * ( 1 - hsv.s );
+	q = hsv.v * ( 1 - hsv.s * f );
+	t = hsv.v * ( 1 - hsv.s * ( 1 - f ) );
+	switch( i ) {
+		case 0:
+			rgb.r = hsv.v;
+			rgb.g = t;
+			rgb.b = p;
+			break;
+		case 1:
+			rgb.r = q;
+			rgb.g = hsv.v;
+			rgb.b = p;
+			break;
+		case 2:
+			rgb.r = p;
+			rgb.g = hsv.v;
+			rgb.b = t;
+			break;
+		case 3:
+			rgb.r = p;
+			rgb.g = q;
+			rgb.b = hsv.v;
+			break;
+		case 4:
+			rgb.r = t;
+			rgb.g = p;
+			rgb.b = hsv.v;
+			break;
+		default:
+			rgb.r = hsv.v;
+			rgb.g = p;
+			rgb.b = q;
+			break;
+	}
+	return rgb;
+}
+function seditor_insertunit(key, text, textend, moveend) {
+	parent.$(key + 'message').focus();
+	textend = isUndefined(textend) ? '' : textend;
+	moveend = isUndefined(textend) ? 0 : moveend;
+	startlen = strlen(text);
+	endlen = strlen(textend);
+	if(!isUndefined(parent.$(key + 'message').selectionStart)) {
+		var opn = parent.$(key + 'message').selectionStart + 0;
+		if(textend != '') {
+			text = text + parent.$(key + 'message').value.substring(parent.$(key + 'message').selectionStart, parent.$(key + 'message').selectionEnd) + textend;
+		}
+		parent.$(key + 'message').value = parent.$(key + 'message').value.substr(0, parent.$(key + 'message').selectionStart) + text + parent.$(key + 'message').value.substr(parent.$(key + 'message').selectionEnd);
+		if(!moveend) {
+			parent.$(key + 'message').selectionStart = opn + strlen(text) - endlen;
+			parent.$(key + 'message').selectionEnd = opn + strlen(text) - endlen;
+		}
+	} else if(document.selection && document.selection.createRange) {
+		var textBox=parent.$(key + 'message');
+		var sel = parent.document.body.createTextRange();
+		sel.moveToElementText(textBox);
+		sel.moveStart('character',textBox.start||textBox.getAttribute("start"));
+		sel.moveEnd('character',(textBox.end||textBox.getAttribute("start")) - textBox.value.length);
+		if(textend != '') {
+			text = text + sel.text + textend;
+		}
+		sel.text = text.replace(/\r?\n/g, '\r\n');
+		if(!moveend) {
+			sel.moveStart('character', -endlen);
+			sel.moveEnd('character', -endlen);
+		}
+		sel.select();
+	} else {
+		parent.$(key + 'message').value += text;
+	}
+	parent.$('c3_menu').style.display='none';
+}
+function setvalue(obj) {
+	var sobj = obj.value;
+	var sp = sobj.indexOf(' ');
+	var setstyle = '';
+	if(sp == -1) {
+		if(sobj.substr(0, 1) == '#') {
+			setstyle = obj.value;
+		}
+	} else {
+		if(sobj.substr(0, 1) == '#') {
+			setstyle = obj.value + ' ' + sobj.substr(sp + 1);
+		} else if(sobj.substr(sp + 1, 1) == '#') {
+			setstyle = obj.value + ' ' + sobj.substr(0, sp);
+		}
+	}
+	setstyle = setstyle != '' ? setstyle : obj.value;
+	document.getElementById('box').style.background = setstyle;
+	seditor_insertunit('fastpost', '[color='+setstyle+']', '[/color]')
+}
+function isUndefined(variable) {
+	return typeof variable == 'undefined' ? true : false;
+}
+function strlen(str) {
+	return (is_ie && str.indexOf('\n') != -1) ? str.replace(/\r?\n/g, '_').length : str.length;
+}
+var userAgent = navigator.userAgent.toLowerCase();
+var is_opera = userAgent.indexOf('opera') != -1 && opera.version();
+var is_moz = (navigator.product == 'Gecko') && userAgent.substr(userAgent.indexOf('firefox') + 8, 3);
+var is_ie = (userAgent.indexOf('msie') != -1 && !is_opera) && userAgent.substr(userAgent.indexOf('msie') + 5, 3);
+</script>
+<style>
+body {
+	margin: 0px;
+	background-color: #FFFFFF;
+}
+</style>
+
+<body onmousedown="getcolor(event)" scrolling="no">
+<table cellspacing="0" cellpadding="0">
+<tr><td colspan="2"><img src="color.jpg" style="cursor: crosshair ;width: 164px; height: 164px"></td></tr>
+<tr height="20"><td width="20" id="box"></td>
+<td width="144">
+<input id="colorhex" style="padding: 2px;font: 12px Arial, Tahoma;cursor: pointer;width: 100%;border: 0px" onkeyup="setvalue(this)" onclick="setvalue(this)">
+</td></tr>
+</table>
+<script>
+document.getElementById('colorhex').value = '#ffccff';
+try {
+	document.getElementById('box').style.background = '#ffccff';
+} catch(e) {}
+</script>
+</body>

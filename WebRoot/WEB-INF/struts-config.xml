@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="localeForm" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="language" type="java.lang.String" />
+			<form-property name="country" type="java.lang.String" />
+			<form-property name="page" type="java.lang.String" initial="/"/>
+		</form-bean>
+		<form-bean name="userForm" type="cn.jsprun.struts.form.UserForm" />
+		<form-bean name="FileUploadForm" type="cn.jsprun.struts.form.FileUploadForm" />
+		
+		<form-bean name="threadsForm" type="cn.jsprun.struts.form.ThreadsForm"/>
+		
+		<form-bean name="pruneForm" type="cn.jsprun.struts.form.PruneForm"/>
+		
+		<form-bean name="attachmentsForm" type="cn.jsprun.struts.form.AttachmentsForm"/>
+		
+		<form-bean name="recyclebinForm" type="cn.jsprun.struts.form.RecyclebinForm"/>
+	</form-beans>
+	<global-forwards>
+		
+		<forward name="message" path="/admin/page/message.jsp"/>
+		
+		<forward name="showMessage" path="/templates/default/showmessage.jsp"/>
+		<forward name="nopermission" path="/templates/default/nopermission.jsp" />
+	</global-forwards>
+	<action-mappings>
+		<action path="/language" type="org.apache.struts.actions.LocaleAction" name="localeForm" scope="request"/>
+		
+		<action path="/basicsettings" parameter="param"	type="cn.jsprun.struts.action.BasicSettingsAction" scope="request" validate="false">
+			<forward name="setting_basic" path="/admin/page/basicsetting/basic.jsp"/>
+			<forward name="setting_access" path="/admin/page/basicsetting/access.jsp"/>
+			<forward name="setting_styles" path="/admin/page/basicsetting/styles.jsp"/>
+			<forward name="setting_seo" path="/admin/page/basicsetting/seo.jsp"/>
+			<forward name="setting_cachethread" path="/admin/page/basicsetting/cachethread.jsp"/>
+			<forward name="setting_functions" path="/admin/page/basicsetting/functions.jsp"/>
+			<forward name="setting_serveropti" path="/admin/page/basicsetting/serveropti.jsp"/>
+			<forward name="setting_mail" path="/admin/page/basicsetting/mail.jsp"/>
+			<forward name="setting_seccode" path="/admin/page/basicsetting/seccode.jsp"/>
+			<forward name="setting_secqaa" path="/admin/page/basicsetting/secqaa.jsp" />
+			<forward name="setting_datetime" path="/admin/page/basicsetting/datetime.jsp" />
+			<forward name="setting_permissions" path="/admin/page/basicsetting/permissions.jsp" />
+			<forward name="setting_attachments" path="/admin/page/basicsetting/attachments.jsp" />
+			<forward name="setting_language" path="/admin/page/basicsetting/language.jsp" />
+			<forward name="setting_wap" path="/admin/page/basicsetting/wap.jsp" />
+			<forward name="setting_space" path="/admin/page/basicsetting/space.jsp" />
+			<forward name="credit" path="/admin/page/basicsetting/credits.jsp"/>
+			<forward name="tocreditWizard" path="/admin/page/basicsetting/creditwizard/creditwizard.jsp"/>
+			<forward name="tocreditExpression" path="/admin/page/basicsetting/creditwizard/creditexpression.jsp"/>
+			<forward name="creditExpression" path="/basicsettings.do?param=toCreditExpression"/>
+			<forward name="tocreditPurpose" path="/admin/page/basicsetting/creditwizard/creditpurpose.jsp"/>
+			<forward name="tocreditparticularse" path="/admin/page/basicsetting/creditwizard/creditparticularsetting.jsp"/>
+			<forward name="bksetting" path="/admin/page/basicsetting/creditwizard/bksetting.jsp"/>
+			<forward name="usergroupsetting" path="/admin/page/basicsetting/creditwizard/usergroupsetting.jsp"/>
+			<forward name="saveProject" path="/admin/page/basicsetting/creditwizard/saveproject.jsp"/>
+			<forward name="resetCredit" path="/admin/page/basicsetting/creditwizard/resetcredit.jsp"/>
+			<forward name="setting_ecommerce" path="/admin/page/pluginsconfig/ecommerce.jsp"/>
+			<forward name="showimage" path="/admin/page/showimage.jsp"/>
+		</action>
+		
+		<action path="/forumsedit" parameter="action" type="cn.jsprun.struts.action.ForumManageAction" scope="request" validate="false">
+			<forward name="toAddForum" path="/admin/page/forumsedit/forumadd.jsp" />
+			<forward name="toEditForum" path="/admin/page/forumsedit/forumsedit.jsp" />
+			<forward name="toForumDetail" path="/admin/page/forumsedit/forumdetail.jsp" />
+			<forward name="toProjectadd" path="/admin/page/forumsedit/projectadd.jsp" />
+			<forward name="toMergeForum" path="/admin/page/forumsedit/forumsmerge.jsp" />
+			<forward name="toThreadtypes" path="/admin/page/forumsedit/threadtypes.jsp" />
+			<forward name="toModerators" path="/admin/page/forumsedit/moderators.jsp" />
+			<forward name="toForumrules" path="/admin/page/forumsedit/forumrules.jsp" />
+			<forward name="toCopyForum" path="/admin/page/forumsedit/forumcopy.jsp" />
+			<forward name="toTypemodel" path="/admin/page/forumsedit/typemodel.jsp" />
+			<forward name="toModeldetail" path="/admin/page/forumsedit/modeldetail.jsp" />
+			<forward name="toTypeoption" path="/admin/page/forumsedit/typeoption.jsp" />
+			<forward name="toOptiondetail" path="/admin/page/forumsedit/optiondetail.jsp" />
+			<forward name="toTypedetail" path="/admin/page/forumsedit/typedetail.jsp" />
+			<forward name="toStyles" path="/admin/page/forumsedit/styles.jsp" />
+			<forward name="toStyledetail" path="/admin/page/forumsedit/styledetail.jsp" />
+			<forward name="toTemplates" path="/admin/page/forumsedit/templates.jsp" />
+			<forward name="toTemplatedetail" path="/admin/page/forumsedit/templatedetail.jsp" />
+			<forward name="toTpledit" path="/admin/page/forumsedit/tpledit.jsp" />
+		</action>
+		
+		<action path="/user" parameter="useraction" attribute="userForm" name="userForm" scope="request" type="cn.jsprun.struts.action.UserAction">
+			<forward name="memberadd" path="/admin/page/members/memberadd.jsp"/>
+			<forward name="inited" path="/admin/page/members/members.jsp" />
+			<forward name="memberEdit" path="/admin/page/members/memberedit.jsp" />
+			<forward name="banIp" path="/admin/page/members/ipban.jsp" />
+			<forward name="creditSubmit" path="/admin/page/members/creditsubmit.jsp" />
+			<forward name="profileFields" path="/admin/page/members/profilefields.jsp" />
+			<forward name="adminGroups" path="/admin/page/members/admingroups.jsp" />
+			<forward name="userGroups" path="/admin/page/members/usergroups.jsp" />
+			<forward name="modMembers" path="/admin/page/members/modmembers.jsp" />
+			<forward name="memberbyusergroup" path="/admin/page/members/memberbyusergroup.jsp" />
+			<forward name="memberpurview" path="/admin/page/members/memberpurview.jsp" />
+			<forward name="membercredits" path="/admin/page/members/membercredits.jsp" />
+			<forward name="memberinfo" path="/admin/page/members/memberinfo.jsp"/>
+			<forward name="membermedals" path="/admin/page/members/membermedals.jsp"/>
+			<forward name="usergroupsinfo" path="/admin/page/members/usergroupsinfo.jsp"/>
+			<forward name="ranks" path="/admin/page/members/ranks.jsp"/>
+			<forward name="userproject" path="/admin/page/members/userproject.jsp"/>
+			<forward name="toeditmember" path="/admin/page/members/editextmember.jsp"></forward>
+			<forward name="banmember" path="/admin/page/members/banmember.jsp"></forward>
+		</action>
+		
+		<action path="/extendsAction" parameter="action" type="cn.jsprun.struts.action.ExtendsAction" scope="request" validate="false">
+			<forward name="go_searchEngine" path="/admin/page/pluginsconfig/searchEngine_config.jsp"/>
+			<forward name="toplugins" path="/admin/page/pluginsconfig/plugins.jsp"/>
+			<forward name="topluginhooks" path="/admin/page/pluginsconfig/pluginhooks.jsp"/>
+			<forward name="topluginvars" path="/admin/page/pluginsconfig/pluginvars.jsp"/>
+			<forward name="toplugins_var_edit" path="/admin/page/pluginsconfig/plugins_var_edit.jsp"/>
+			<forward name="topluginsconfig" path="/admin/page/pluginsconfig/pluginsconfig.jsp"/>
+			<forward name="topluginsedit" path="/admin/page/pluginsconfig/pluginsedit.jsp"/>
+			<forward name="totenpay" path="/admin/page/pluginsconfig/tenpay.jsp"/>
+			<forward name="toec_credit" path="/admin/page/pluginsconfig/ec_credit.jsp"/>
+			<forward name="toorders" path="/admin/page/pluginsconfig/orders.jsp"/>
+			<forward name="totradelog" path="/admin/page/pluginsconfig/tradelog.jsp"/>
+		</action>
+		
+		<action path="/other" parameter="action" type="cn.jsprun.struts.action.OtherManageAction" scope="request" validate="false">
+			<forward name="other_magic_config" path="/admin/page/announcements/magic_config.jsp"/>
+			<forward name="other_magic" path="/admin/page/announcements/magic.jsp" />
+			<forward name="other_magicedit" path="/admin/page/announcements/magicedit.jsp" />
+			<forward name="other_magicmarket" path="/admin/page/announcements/magicmarket.jsp" />
+			<forward name="other_announcements" path="/admin/page/announcements/announcements.jsp" />
+			<forward name="other_annedit" path="/admin/page/announcements/annedit.jsp" />
+			<forward name="other_medals" path="/admin/page/announcements/medals.jsp" />
+			<forward name="other_advadd" path="/admin/page/announcements/advadd.jsp" />
+			<forward name="other_adv" path="/admin/page/announcements/adv.jsp" />
+			<forward name="other_advedit" path="/admin/page/announcements/advedit.jsp" />
+			<forward name="other_forumlinks" path="/admin/page/announcements/forumlinks.jsp" />
+			<forward name="other_crons" path="/admin/page/announcements/crons.jsp"/>
+			<forward name="other_cronsedit" path="/admin/page/announcements/cronsedit.jsp"/>
+			<forward name="other_faqedit" path="/admin/page/announcements/faqedit.jsp" />
+			<forward name="other_faqlist" path="/admin/page/announcements/faqlist.jsp" />
+			<forward name="other_onlinelist" path="/admin/page/announcements/onlinelist.jsp" />
+		</action>
+		<action path="/sysutil" type="cn.jsprun.struts.action.SystemUtilUserAction" scope="request" parameter="useraction" name="userForm">
+			<forward name="newlettersubmit" path="/admin/page/counter/newslettersubmit.jsp"/>
+			<forward name="ratelog" path="/admin/page/counter/ratelog.jsp"/>
+			<forward name="medalslog" path="/admin/page/counter/medalslog.jsp"/>
+			<forward name="banlog" path="/admin/page/counter/banlog.jsp"/>
+			<forward name="illegalog" path="/admin/page/counter/illegallog.jsp"/>
+			<forward name="cplog" path="/admin/page/counter/cplog.jsp"/>
+			<forward name="modslog" path="/admin/page/counter/modslog.jsp"/>
+			<forward name="errorlog" path="/admin/page/counter/errorlog.jsp"/>
+			<forward name="creditslog" path="/admin/page/counter/creditslog.jsp"/>
+			<forward name="magiclog" path="/admin/page/counter/magiclog.jsp"/>
+			<forward name="inviteslog" path="/admin/page/counter/invitelog.jsp"/>
+		</action>
+		<action path="/sysfile" type="cn.jsprun.struts.action.SystemFileAction" scope="request" parameter="fileaction">
+			<forward name="fileperms" path="/admin/page/counter/fileperms.jsp"/>
+			<forward name="fileintegrity" path="/admin/page/counter/filecheck.jsp"/>
+		</action>
+		
+		<action path="/home" parameter="action" type="cn.jsprun.struts.action.HomeManageAction" validate="false" scope="request">
+			<forward name="home" path="/admin/page/home.jsp" />
+		</action>
+		
+		<action path="/posts" parameter="postsaction" type="cn.jsprun.struts.action.PostsAction" validate="false" scope="request">
+			
+			<forward name="tothreads" path="/admin/page/modthreads/modthreads.jsp"/>
+			<forward name="toreplies" path="/admin/page/modthreads/modreplies.jsp"/>
+			<forward name="toThreadsForum" path="/admin/page/modthreads/threads.jsp"/>
+			<forward name="threads" path="/admin/page/main.jsp?action=threads"/>
+			<forward name="toPruneForum" path="/admin/page/modthreads/prune.jsp"/>
+			<forward name="totags" path="/admin/page/modthreads/tags.jsp"/>
+			<forward name="towords" path="/admin/page/modthreads/censor.jsp"/>
+			<forward name="toattatype" path="/admin/page/modthreads/attachtypes.jsp"/>
+			
+			<forward name="toforumrecommend" path="/admin/page/modthreads/forumrecommend.jsp"/>
+			
+			<forward name="toCensor" path="/admin/page/main.jsp?action=censor"></forward>
+			<forward name="towords" path="/admin/page/modthreads/censor.jsp"/>
+			
+			<forward name="lengiserror" path="/admin/page/modthreads/lengiserror.jsp"/>
+			
+			<forward name="toAttachtypes" path="/admin/page/main.jsp?action=attachtypes"/>
+			
+			<forward name="toAttachments" path="/admin/page/modthreads/attachments.jsp"/>
+			
+			<forward name="tojspruncode" path="/admin/page/modthreads/jspruncodes.jsp"/>
+			
+			<forward name="toRecyclebin" path="/admin/page/modthreads/recyclebin.jsp"/>
+			
+			<forward name="toSmilies" path="/admin/page/modthreads/smilies.jsp"/>
+			
+			<forward name="toJspRunCodeChild" path="/admin/page/modthreads/jspruncodechild.jsp"/>
+			<forward name="toIcons" path="/admin/page/modthreads/icons.jsp"/>
+		</action>
+		
+		<action name="threadsForm" path="/threads" parameter="threadsaction" type="cn.jsprun.struts.action.ThreadsAction" scope="request" validate="false">
+			<forward name="threads" path="/admin/page/main.jsp?action=threads"/>
+		</action>
+		
+		<action name="pruneForm" path="/prune" parameter="pruneaction" type="cn.jsprun.struts.action.PruneAction" scope="request" validate="false">
+			<forward name="toPruneForum" path="/admin/page/modthreads/prune.jsp"/>
+		</action>
+		
+		<action path="/tagManage" parameter="tagsaction"
+			type="cn.jsprun.struts.action.TagsAction" scope="request" validate="false">
+			<forward name="toTags" path="/admin/page/modthreads/tags.jsp"/>
+		</action>
+		
+		<action name="attachmentsForm" path="/attachments" parameter="attachmentsaction" type="cn.jsprun.struts.action.AttachmentsAction" scope="request" validate="false">
+			<forward name="toAttachments" path="/admin/page/modthreads/attachments.jsp"/>
+		</action>
+		
+		<action name="recyclebinForm" path="/recyclebin" parameter="recyclebinaction" type="cn.jsprun.struts.action.RecyclebinAction" scope="request" validate="false">
+			<forward name="toRecyclebin" path="/admin/page/modthreads/recyclebin.jsp"/>
+		</action>
+		
+		<action path="/smilies" parameter="smiliesaction" type="cn.jsprun.struts.action.SmiliesAction" scope="request" validate="false">
+			
+			<forward name="toSmilies" path="/admin/page/modthreads/smilies.jsp"/>
+			
+			<forward name="findBySmilies" path="/admin/page/modthreads/smiliesTypes.jsp"/>
+		</action>
+		
+		<action path="/pmprune" parameter="pmpruneaction" type="cn.jsprun.struts.action.PmpruneAction" scope="request">
+		</action>
+		
+		<action path="/safety" parameter="param" type="cn.jsprun.struts.action.SafetyManageAction" scope="request" validate="false">
+			<forward name="safety_basic" path="/admin/page/safety/basic.jsp" />
+			<forward name="safety_cc" path="/admin/page/safety/cc.jsp" />
+			<forward name="safety_ddos" path="/admin/page/safety/ddos.jsp" />
+			<forward name="safety_port" path="/admin/page/safety/port.jsp" />
+		</action>
+		
+		<action validate="false" parameter="action" path="/project" type="cn.jsprun.struts.action.ProjectManageAction" scope="request">
+			<forward name="toProject" path="/admin/page/counter/project.jsp" />
+			<forward name="toProjectapply" path="/admin/page/counter/projectapply.jsp" />
+			<forward name="toCredit" path="/basicsettings.do?param=toCredits"></forward>
+		</action>
+		
+		<action validate="false" parameter="action" path="/database" type="cn.jsprun.struts.action.DataBaseManageAction" scope="request">
+			<forward name="toExport" path="/admin/page/counter/export.jsp" />
+			<forward name="toImport" path="/admin/page/counter/import.jsp" />
+			<forward name="toRunquery" path="/admin/page/counter/runquery.jsp" />
+			<forward name="toOptimize" path="/admin/page/counter/optimize.jsp" />
+			<forward name="toDbcheck" path="/admin/page/counter/dbcheck.jsp" />
+		</action>
+		<action path="/systemtool" parameter="action" type="cn.jsprun.struts.action.SystemToolAction" scope="request" validate="false">
+			<forward name="javascript" path="/admin/page/counter/javascript.jsp"/>
+			<forward name="jssetting" path="/admin/page/counter/jssetting.jsp"/>
+			<forward name="jsthreadsetting" path="/admin/page/counter/jsthreadsetting.jsp"/>
+			<forward name="jsforumsetting" path="/admin/page/counter/jsforumsetting.jsp"/>
+			<forward name="jsmemberranksetting" path="/admin/page/counter/jsmemberranksetting.jsp"/>
+			<forward name="jstatssetting" path="/admin/page/counter/jsstatssetting.jsp"/>
+			<forward name="jsimagesetting" path="/admin/page/counter/jsimagesetting.jsp"/>
+			<forward name="jscoustemsetting" path="/admin/page/counter/jscustomsetting.jsp"/>
+		</action>
+		<action path="/space" parameter="action" type="cn.jsprun.struts.foreg.actions.SpacesAction" validate="false">
+			<forward name="tospace" path="/templates/default/space.jsp"></forward>
+			<forward name="tospacemodule" path="/templates/default/memcp_spacemodule.jsp"/>
+			<forward name="touserinfo" path="/templates/default/space_viewpro.jsp"/>
+			<forward name="tomyblogs" path="/templates/default/space_myblogs.jsp"/>
+			<forward name="tomythreads" path="/templates/default/space_mythreads.jsp"/>
+			<forward name="tomyreplay" path="/templates/default/space_myreplies.jsp"/>
+			<forward name="tomyreward" path="/templates/default/space_myrewards.jsp"/>
+			<forward name="totrades" path="/templates/default/space_mytrades.jsp"/>
+			<forward name="tomyfavforums" path="/templates/default/space_myfavforums.jsp"/>
+			<forward name="tomyfavthreads" path="/templates/default/space_myfavthreads.jsp"/>
+			<forward name="tocustominfo" path="/templates/default/spaceinfo.jsp"/>
+			<forward name="userinfo" path="/templates/default/space_viewprodis.jsp"/>
+		</action>
+		
+		<action validate="false" parameter="action" path="/register" type="cn.jsprun.struts.foreg.actions.RegisterManageAction" scope="request">
+			<forward name="toRegister" path="/templates/default/register.jsp" />
+		</action>
+		
+		<action validate="false" parameter="action" path="/logging" type="cn.jsprun.struts.foreg.actions.LoggingManageAction" scope="request">
+			<forward name="toLogin" path="/templates/default/login.jsp" />
+			<forward name="toLogin_secques" path="/templates/default/login_secques.jsp" />
+		</action>
+		
+		<action validate="false" parameter="action" path="/ajax" type="cn.jsprun.struts.foreg.actions.AjaxAction" scope="request">
+		</action>
+		
+		<action validate="false" parameter="action" path="/member" type="cn.jsprun.struts.foreg.actions.MemberManageAction" scope="request">
+			<forward name="member_misc" path="/templates/default/member_misc.jsp" />
+			<forward name="toGetpasswd" path="/templates/default/getpasswd.jsp" />
+			<forward name="toIndex" path="/index.jsp" />
+			<forward name="whosonline" path="/templates/default/whosonline.jsp"/>
+			<forward name="toMemberList" path="/templates/default/memberlist.jsp"/>
+			<forward name="credits" path="/templates/default/credits.jsp"/>
+		</action>
+		
+		<action validate="false" parameter="adminaction" path="/admincp" type="cn.jsprun.struts.action.AdmincpAction" scope="request">
+			<forward name="toAdmincp" path="/admin/admincp.jsp" />
+			<forward name="toIndex" path="/admin/index.jsp" />
+		</action>
+		
+		<action path="/pms" parameter="actions" type="cn.jsprun.struts.foreg.actions.PmsAction" validate="false">
+			<forward name="todisplay" path="/templates/default/pm.jsp"/>
+			<forward name="toview" path="/templates/default/pm_viewajax.jsp"/>
+			<forward name="pmsearch" path="/pm.jsp?action=search"/>
+			<forward name="archives" path="/templates/default/pm_archive.html.jsp"/>
+			<forward name="searchpms" path="/templates/default/pm.jsp?action=search"/>
+			<forward name="tosendajax" path="/templates/default/pm_send_ajax.jsp"/>
+		</action>
+		
+		<action validate="false" parameter="item" path="/my" type="cn.jsprun.struts.foreg.actions.MyManageAction" scope="request">
+			<forward name="toMy" path="/templates/default/my.jsp" />
+		</action>
+		
+		<action validate="false" path="/index" type="cn.jsprun.struts.foreg.actions.IndexManageAction" scope="request">
+			<forward name="toJsprun" path="/templates/default/jsprun.jsp" />
+		</action>
+		
+		<action validate="false" path="/announcement" type="cn.jsprun.struts.foreg.actions.AnnouncementAction" scope="request">
+			<forward name="toAnnouncement" path="/templates/default/announcement.jsp" />
+		</action>
+		
+		<action validate="false" parameter="action" path="/footer" type="cn.jsprun.struts.foreg.actions.FooterManageAction"	scope="request"/>
+		
+		<action validate="false" path="/forumdisplay" type="cn.jsprun.struts.foreg.actions.ForumdisplayAction" scope="request">
+			<forward name="toForumdisplay" path="/templates/default/forumdisplay.jsp" />
+			<forward name="toForumdisplay_simple" path="/templates/default/forumdisplay_simple.jsp" />
+			<forward name="toForumdisplay_passwd" path="/templates/default/forumdisplay_passwd.jsp" />
+		</action>
+		
+		<action path="/magicModule" parameter="actionMethodName" type="cn.jsprun.struts.foreg.actions.MagicAction" validate="false"  scope="request">
+			<forward name="goMagic_shop" path="/templates/default/magic_shop.jsp"/>
+		</action>	
+		<action path="/myMagicBoxModule" parameter="actionMethodName" type="cn.jsprun.struts.foreg.actions.MyMagicBoxAction" validate="false" scope="request">
+			<forward name="goMagic_user" path="/templates/default/magic_user.jsp"/>
+		</action>
+		<action path="/magicMarket" parameter="actionMethodName" type="cn.jsprun.struts.foreg.actions.MagicMarketAction" validate="false" scope="request">
+			<forward name="magic_market" path="/templates/default/magic_market.jsp"/>	
+			<forward name="magic_market_prepareoperation" path="/templates/default/magic_market_prepareoperation.jsp"/>
+		</action>
+		<action path="/magicLog" parameter="actionMethodName" type="cn.jsprun.struts.foreg.actions.MagicLogAction" validate="false" scope="request">
+			<forward name="goMagic_log" path="/templates/default/magic_log.jsp"/>
+		</action>
+		
+		
+		<action path="/search" parameter="actions" type="cn.jsprun.struts.foreg.actions.SearchThreadAction" validate="false">
+			<forward name="tosearch" path="/templates/default/search.jsp"/>
+			<forward name="tosearchbytype" path="/templates/default/searchbytype.jsp"/>
+			<forward name="searchresult" path="/templates/default/search_result.jsp"/>
+			<forward name="tosearchids" path="/search.jsp?action=search"/>
+			<forward name="search_type" path="/templates/default/search_type.jsp"></forward>
+		</action>
+		
+		<action path="/tags" parameter="actions" type="cn.jsprun.struts.foreg.actions.TagsAction" validate="false">
+			<forward name="todistags" path="/templates/default/tag.jsp"/>
+			<forward name="todisthreads" path="/templates/default/tag_threads.jsp"/>
+		</action>
+		
+		<action path="/ctrl" parameter="actions" type="cn.jsprun.struts.foreg.actions.ControlAction" validate="false" name="FileUploadForm" attribute="FileUploadForm" scope="request">
+			<forward name="tohome" path="/templates/default/memcp_home.jsp"/>
+			<forward name="touserinfo" path="/templates/default/memcp_profile.jsp"/>
+			<forward name="tologs" path="/templates/default/memcp_creditslog.jsp"/>
+			<forward name="tocredits" path="/templates/default/memcp_credits.jsp"/>
+			<forward name="tousergroup" path="/templates/default/memcp_usergroups.jsp"/>
+		</action>
+		
+		<action path="/plugin" parameter="action" type="cn.jsprun.struts.foreg.actions.PluginAction" validate="false"/>
+		
+		<action path="/faq" type="cn.jsprun.struts.foreg.actions.FaqAction" validate="false">
+			<forward name="todisfaqs" path="/templates/default/faq.jsp"/>
+		</action>
+		
+		<action path="/statistic" parameter="actionMethodName" type="cn.jsprun.struts.foreg.actions.StatisticAction" validate="false" scope="request">
+			<forward name="goStats_main" path="/templates/default/stats_main.jsp"/>
+			<forward name="goStats_forumsrank" path="/templates/default/stats_forumsrank.jsp"/>
+			<forward name="goStats_views" path="/templates/default/stats_views.jsp"/>
+			<forward name="goStats_agent" path="/templates/default/stats_agent.jsp"/>
+			<forward name="goStats_postslog" path="/templates/default/stats_postslog.jsp"/>
+			<forward name="goStats_threadcompositor" path="/templates/default/stats_threadcompositor.jsp"/>
+			<forward name="goStats_postscompositor" path="/templates/default/stats_postscompositor.jsp"/>
+			<forward name="goStats_creditcompositor" path="/templates/default/stats_creditcompositor.jsp"/>
+			<forward name="goStats_onlinecompositor" path="/templates/default/stats_onlinecompositor.jsp"/>
+			<forward name="goStats_manageTeam" path="/templates/default/stats_manageteam.jsp"/>
+			<forward name="goStats_manageStatistic" path="/templates/default/stats_managestatistic.jsp"/>
+			<forward name="goStats_tradeCompositor" path="/templates/default/stats_trade.jsp"/>
+		</action>
+		
+		
+		<action path="/thread" type="cn.jsprun.struts.foreg.actions.ViewThreadAction" validate="false" parameter="actions">
+			<forward name="viewthread" path="/templates/default/viewthread.jsp"/>
+			<forward name="poll" path="/templates/default/viewthread_poll.jsp"/>
+			<forward name="trade" path="/templates/default/viewthread_trade.jsp"/>
+			<forward name="reward" path="/templates/default/viewthread_reward.jsp"/>
+			<forward name="activity" path="/templates/default/viewthread_activity.jsp"/>
+			<forward name="debate" path="/templates/default/viewthread_debate.jsp"/>
+			<forward name="spacilpost" path="/templates/default/viewthread_special_post.jsp"/>
+			<forward name="debatepost" path="/templates/default/viewthread_debate_post.jsp"/>
+			<forward name="tradelist" path="/templates/default/viewthread_trade_list.jsp"/>
+			<forward name="viewreplay" path="/templates/default/viewthread_trade_post.jsp"/>
+			<forward name="sapce_topic" path="/templates/default/space_topic.jsp"/>
+			<forward name="printtable" path="/templates/default/viewthread_printable.jsp"/>
+			<forward name="toForumdisplay_passwd" path="/templates/default/forumdisplay_passwd.jsp"/>
+			<forward name="trade_info" path="/templates/default/trade_info.jsp"/>
+		</action>
+		<action path="/misc" type="cn.jsprun.struts.foreg.actions.MiscAction" parameter="actions">
+			<forward name="toemailfriend" path="/templates/default/emailfriend.jsp"/>
+			<forward name="toreportpost" path="/templates/default/reportpost.jsp"/>
+			<forward name="torate" path="/templates/default/rate.jsp"/>
+			<forward name="tomod" path="/templates/default/viewthread_mod.jsp"/>
+			<forward name="rate_view" path="/templates/default/rate_view.jsp"/>
+			<forward name="viewthread_poll_voters" path="/templates/default/viewthread_poll_voters.jsp"/>
+			<forward name="activity_applylist" path="/templates/default/activity_applylist.jsp"/>
+			<forward name="pay_view" path="/templates/default/pay_view.jsp"/>
+			<forward name="pay" path="/templates/default/pay.jsp"/>
+			<forward name="attachpay_view" path="/templates/default/attachpay_view.jsp"/>
+			<forward name="attachpay" path="/templates/default/attachpay.jsp"/>
+			<forward name="debate_umpire" path="/templates/default/debate_umpire.jsp"/>
+			<forward name="trade_displayorder" path="/templates/default/trade_displayorder.jsp"/>
+		</action>
+		<action path="/modcp" type="cn.jsprun.struts.foreg.actions.ModcpAction" parameter="actions">
+			<forward name="tomodcppost" path="/templates/default/modcp_editpost.jsp"/>
+			<forward name="topicagetip" path="/templates/default/topicadmin_getip.jsp"/>
+		</action>
+		<action path="/attach" type="cn.jsprun.struts.foreg.actions.AttachmentAction" parameter="actions" scope="request"></action>
+		
+		<action validate="false" parameter="actions" path="/post" type="cn.jsprun.struts.foreg.actions.PostManageAction" scope="request">
+			<forward name="toPost_newthread" path="/templates/default/post_newthread.jsp" />
+			<forward name="toPost_newthread_trade" path="/templates/default/post_newthread_trade.jsp" />
+			<forward name="toPost_newthread_activity" path="/templates/default/post_newthread_activity.jsp" />
+			<forward name="toPost_newreply" path="/templates/default/post_newreply.jsp" />
+			<forward name="toPost_newreply_trade" path="/templates/default/post_newreply_trade.jsp" />
+			<forward name="toPost_editpost" path="/templates/default/post_editpost.jsp" />
+			<forward name="toPost_editpost_trade" path="/templates/default/post_editpost_trade.jsp" />
+			<forward name="toPost_editpost_activity" path="/templates/default/post_editpost_activity.jsp" />
+			<forward name="post_typeoption" path="/templates/default/post_typeoption.jsp" />
+			<forward name="search_typeoption" path="/templates/default/search_typeoption.jsp" />
+			<forward name="toPost_seccode" path="/templates/default/post_seccode.jsp" />
+			<forward name="toPost_smilies" path="/templates/default/post_smilies.jsp"/>
+		</action>
+		<action path="/topicAdminAction" validate="false"  type="cn.jsprun.struts.foreg.actions.TopicAdminAction" parameter="actionMonthName">
+			<forward name="goTopicadmin_moderate" path="/templates/default/topicadmin_moderate.jsp"/>
+			<forward name="goTopicadmin_refund" path="/templates/default/topicadmin_refund.jsp" />
+			
+			<forward name="goTopicadmin_delpost" path="/templates/default/topicadmin_delpost.jsp"/>
+			<forward name="goTopicadmin_banpost" path="/templates/default/topicadmin_banpost.jsp"/>
+			<forward name="goTopicadmin_copy" path="/templates/default/topicadmin_copy.jsp"/>
+			<forward name="goTopicadmin_split" path="/templates/default/topicadmin_split.jsp"/>
+			<forward name="goTopicadmin_merge" path="/templates/default/topicadmin_merge.jsp"/>
+			
+		</action>
+		<action path="/frame" validate="false" type="cn.jsprun.struts.foreg.actions.FrameManageAction" parameter="action">
+			<forward name="showLeftMenu" path="/templates/default/leftmenu.jsp"/>
+			<forward name="showFrame" path="/templates/default/frame.jsp"/>
+		</action>
+		<action path="/digest" validate="false" type="cn.jsprun.struts.foreg.actions.DigestAction" scope="request">
+			<forward name="todisgest" path="/templates/default/digest.jsp"/>
+		</action>
+		<action path="/trade" validate="false" type="cn.jsprun.struts.foreg.actions.TradeManageAction" parameter="action">
+			<forward name="totrade" path="/templates/default/trade.jsp"/>
+			<forward name="totrade_view" path="/templates/default/trade_view.jsp"/>
+		</action>
+		<action path="/invite" validate="false" type="cn.jsprun.struts.foreg.actions.InviteAction" parameter="actions">
+			<forward name="invite_log" path="/templates/default/invite_log.jsp"/>
+			<forward name="invite_get" path="/templates/default/invite_get.jsp"/>
+			<forward name="invite_send" path="/templates/default/invite_send.jsp"/>
+		</action>
+		<action path="/domain" type="cn.jsprun.domainmanage.DomainManageAction" parameter="action" validate="false"/>
+		
+		<action path="/redirect" parameter="action" type="cn.jsprun.struts.foreg.actions.RedirectManageAction" scope="request" validate="false" ></action>
+		<action path="/sitemap" parameter="action" type="cn.jsprun.struts.foreg.actions.SitemapAction" validate="false"></action>
+		<action path="/archiver" type="cn.jsprun.struts.foreg.actions.Archiver" parameter="actionMethod" validate="false">
+			<forward name="index_inc" path="/archiver/include/index_inc.jsp"></forward>
+			<forward name="forum_inc" path="/archiver/include/forum_inc.jsp"></forward>
+			<forward name="thread_inc" path="/archiver/include/thread_inc.jsp"></forward>
+		</action>
+		<action path="/rss" type="cn.jsprun.struts.foreg.actions.RssAction">
+			<forward name="rss_inc" path="/rss_inc.jsp"></forward>
+		</action>
+		<action path="/wap" type="cn.jsprun.struts.foreg.actions.WapAction" parameter="actionMethod" validate="false">
+			<forward name="home" path="/wap/include/home.jsp"></forward>
+			<forward name="login" path="/wap/include/login.jsp"></forward>
+			<forward name="register" path="/wap/include/register.jsp"></forward>
+			<forward name="showFOT" path="/wap/include/forums_threads.jsp"></forward>
+			<forward name="thread" path="/wap/include/thread.jsp"></forward>
+			<forward name="goto" path="/wap/include/goto.jsp"></forward>
+			<forward name="newThread" path="/wap/include/newthread.jsp"></forward>
+			<forward name="newReply" path="/wap/include/newreply.jsp"></forward>
+			<forward name="my" path="/wap/include/my.jsp"></forward>
+			<forward name="mycollection" path="/wap/include/mycollection.jsp"></forward>
+			<forward name="myphone" path="/wap/include/myphone.jsp"></forward>
+			<forward name="search" path="/wap/include/search.jsp"></forward>
+			<forward name="searchresult" path="/wap/include/searchresult.jsp"></forward>
+			<forward name="stats" path="/wap/include/stats.jsp"></forward>
+			<forward name="pm" path="/wap/include/pm.jsp"></forward>
+			<forward name="pmlist" path="/wap/include/pmlist.jsp"></forward>
+			<forward name="pmview" path="/wap/include/pmview.jsp"></forward>
+			<forward name="pmsend" path="/wap/include/pmsend.jsp"></forward>
+			<forward name="accessdenied" path="/wap/include/accessdenied.jsp"></forward>
+		</action>
+		<action path="/jscript" type="cn.jsprun.struts.foreg.actions.JavaScriptAction" parameter="action" scope="request" validate="false"/>
+		<action path="/notify" validate="false" type="cn.jsprun.struts.foreg.actions.NotifyAction" parameter="action"/>
+		<action path="/eccredit" type="cn.jsprun.struts.foreg.actions.EccreditAction" parameter="action">
+			<forward name="ec_credit" path="/templates/default/ec_credit.jsp"/>
+			<forward name="ec_list" path="/templates/default/ec_list.jsp"/>
+			<forward name="ec_explain" path="/templates/default/ec_explain.jsp"/>
+			<forward name="ec_rate" path="/templates/default/ec_rate.jsp"/>
+		</action>
+	</action-mappings>
+	<message-resources parameter="cn.jsprun.struts.ApplicationResources" />
+</struts-config>

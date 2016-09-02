@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
+<!--
+	Configuration file for UrlRewriteFilter
+	http://tuckey.org/urlrewrite/
+-->
+<urlrewrite decode-using="UTF-8">
+	<rule>
+		<from>^(.*)/forum-([0-9]+)-([0-9]+)\.html</from>
+		<to>/forumdisplay.jsp?fid=$2&amp;page=$3</to>
+	</rule>
+	<rule>
+		<from>^(.*)/thread-([0-9]+)-([0-9]+)-([0-9]+)\.html</from>
+		<to>/viewthread.jsp?tid=$2&amp;extra=page\%3D$3&amp;page=$4</to>
+	</rule>
+	<rule>
+		<from>^(.*)/tag-(.+)\.html</from>
+		<to>/tag.jsp?name=$2</to>
+	</rule>
+	<rule>
+		<from>^(.*)/space-(username|uid)-(.+)\.html$</from>
+		<to>/space.jsp?$2=$3</to>
+	</rule>
+	<rule>
+		<from>^/archiver/fid-([0-9]+)\.html$</from>
+		<to>/archiver/index.jsp?fid=$1</to>
+	</rule>
+	<rule>
+		<from>^/archiver/fid-([0-9]+)-page-([0-9]+)\.html$</from>
+		<to>/archiver/index.jsp?fid=$1&amp;page=$2</to>
+	</rule>
+	<rule>
+		<from>^/archiver/tid-([0-9]+)\.html$</from>
+		<to>/archiver/index.jsp?tid=$1</to>
+	</rule>
+	<rule>
+		<from>^/archiver/tid-([0-9]+)-page-([0-9]+)\.html$</from>
+		<to>/archiver/index.jsp?tid=$1&amp;page=$2</to>
+	</rule>
+	<outbound-rule>
+		<note>
+			The outbound-rule specifies that when response.encodeURL is
+			called (if you are using JSTL c:url) the url /rewrite-status
+			will be rewritten to /test/status/. The above rule and this
+			outbound-rule means that end users should never see the url
+			/rewrite-status only /test/status/ both in thier location
+			bar and in hyperlinks in your pages.
+		</note>
+		<from>/rewrite-status</from>
+		<to>/test/status/</to>
+	</outbound-rule>
+</urlrewrite>

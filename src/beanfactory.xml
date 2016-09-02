@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean name="dataParse" class="cn.jsprun.utils.DataParse"/>
+	<bean name="jspruncode" class="cn.jsprun.utils.Jspruncode"/>
+	<bean name="ftputils" class="cn.jsprun.utils.FtpUtils"/>
+	<bean name="memberDao" class="cn.jsprun.dao.impl.MembersDaoImpl"/>
+	<bean name="otherSetDao" class="cn.jsprun.dao.impl.OtherSetDaoImpl"/>
+	<bean name="modworksDao" class="cn.jsprun.dao.impl.ModworksDaoImpl"/>
+	<bean name="forumRecommendDao" class="cn.jsprun.dao.impl.ForumRecommendDaoImpl"/>
+	<bean name="promotionsDao" class="cn.jsprun.dao.impl.PromotionsDaoImpl"/>
+	<bean name="bbcodesDao" class="cn.jsprun.dao.impl.BbcodesDaoImple"/>
+	<bean name="userGroupDao" class="cn.jsprun.dao.impl.UserGroupDaoImpl"/>
+	<bean name="imageDao" class="cn.jsprun.dao.impl.ImagetypesDaoImple"/>
+	<bean name="postsDao" class="cn.jsprun.dao.impl.PostsDaoImpl"/>
+	<bean name="pmsDao" class="cn.jsprun.dao.impl.PmsDaoImpl"/>
+	<bean name="threadsmodDao" class="cn.jsprun.dao.impl.ThreadsmodDaoImple"/>
+	<bean name="forumsDao" class="cn.jsprun.dao.impl.ForumsDaoImpl" />
+	<bean name="wordsDao" class="cn.jsprun.dao.impl.WordsDaoImple"/>
+	<bean name="threadsDao" class="cn.jsprun.dao.impl.ThreadsDaoImple"/>	
+	<bean name="attachtypesDao" class="cn.jsprun.dao.impl.AttachtypesDaoImple"/>
+	<bean name="recyclebinDao"	class="cn.jsprun.dao.impl.RecyclebinDaoImple"/>
+	<bean name="smiliesDao" class="cn.jsprun.dao.impl.SmiliesDaoImple"/>
+	<bean name="bannedDao" class="cn.jsprun.dao.impl.BannedDaoImpl"/>
+	<bean name="advSetDao" class="cn.jsprun.dao.impl.AdvertisementsDaoImpl"/>
+	<bean name="onLineListDao" class="cn.jsprun.dao.impl.OnLineListDaoImpl"/>
+	<bean name="cronsSetDao" class="cn.jsprun.dao.impl.CronsDaoImpl"/>
+	<bean name="settingDao" class="cn.jsprun.dao.impl.SettingsDaoImpl"/>
+	<bean name="creditsSetDao" class="cn.jsprun.dao.impl.CreditsSetDaoImpl" />
+	<bean name="projectsDao" class="cn.jsprun.dao.impl.ProjectsDaoImpl" />
+	<bean name="forumsDao" class="cn.jsprun.dao.impl.ForumsDaoImpl" />
+	<bean name="threadtypesDao" class="cn.jsprun.dao.impl.ThreadtypesDaoImpl" />
+	<bean name="forumfieldsDao" class="cn.jsprun.dao.impl.ForumfieldsDaoImpl" />
+	<bean name="typemodelsDao" class="cn.jsprun.dao.impl.TypemodelsDaoImpl" />
+	<bean name="typeoptionsDao" class="cn.jsprun.dao.impl.TypeoptionsDaoImpl" />
+	<bean name="typevarsDao" class="cn.jsprun.dao.impl.TypevarsDaoImpl" />
+	<bean name="stylesDao" class="cn.jsprun.dao.impl.StylesDaoImpl" />
+	<bean name="templatesDao" class="cn.jsprun.dao.impl.TemplatesDaoImpl" />
+	<bean name="creditslogDao" class="cn.jsprun.dao.impl.CreditslogDaoImpl"/>
+	<bean name="magiclogDao" class="cn.jsprun.dao.impl.MagiclogDaoImpl"/>
+	<bean name="buddysDao" class="cn.jsprun.dao.impl.BuddysDaoImpl"/>
+	<bean name="favoritesDao" class="cn.jsprun.dao.impl.FavoritesDaoImpl"/>
+	<bean name="mypostDao" class="cn.jsprun.dao.impl.MypostsDaoImpl"/>
+	<bean name="mythreadDao" class="cn.jsprun.dao.impl.MythreadDaoImpl"/>
+	<bean name="subscriptionsDao" class="cn.jsprun.dao.impl.SubscriptionsDaoImpl"/>
+	<bean name="rewardlogDao" class="cn.jsprun.dao.impl.RewardlogDaoImpl"/>
+	<bean name="sessionDao" class="cn.jsprun.dao.impl.SessionsDaoImpl"/>
+	<bean name="attachmentsDao" class="cn.jsprun.dao.impl.AttachmentsDaoImple"/>
+	<bean name="dataBaseDao" class="cn.jsprun.dao.impl.DataBaseDaoImpl" />
+	<bean name="memberspaceDao" class="cn.jsprun.dao.impl.MemberSpaceDaoImpl"/>
+	<bean name="tradesDao" class="cn.jsprun.dao.impl.TradesDaoImpl"/>
+	<bean name="memberMagicsDao"  	class="cn.jsprun.dao.impl.MemberMagicsDaoImp"/>
+	<bean name="member_Magics_Magiclog_MemberMagicsDao" class="cn.jsprun.dao.impl.Member_Magics_Magiclog_MemberMagicsDaoImp"/>
+	<bean name="memberMagic_MagiclogDao" class="cn.jsprun.dao.impl.MemberMagic_MagiclogDaoImpl"/>
+	<bean name="magicMarketDao" class="cn.jsprun.dao.impl.MagicMarketDaoImpl"/>
+	<bean name="pmsearchindexDao" class="cn.jsprun.dao.impl.PmsearchindexDaoImpl"/>
+	<bean name="searchindexDao" class="cn.jsprun.dao.impl.SearchindexDaoImpl"/>
+	<bean name="threadtagDao" class="cn.jsprun.dao.impl.ThreadtagDaoImpl"/>
+	<bean name="tagDao" class="cn.jsprun.dao.impl.TagsDaoImple"/>
+	<bean name="paymentlogDao" class="cn.jsprun.dao.impl.PaymentlogDaoImpl"/>
+	<bean name="orderDao" class="cn.jsprun.dao.impl.OrdersDaoImpl"/>
+	<bean name="faqDao" class="cn.jsprun.dao.impl.FaqsDaoImpl"/>
+	<bean name="statvarsDao" class="cn.jsprun.dao.impl.StatvarsDaoImpl"/>
+	<bean name="statsDao" class="cn.jsprun.dao.impl.StatsDaoImpl"/>
+	<bean name="ratelogDao" class="cn.jsprun.dao.impl.RatelogDaoImpl"></bean>
+	<bean name="pollsDao" class="cn.jsprun.dao.impl.PollsDaoImpl"></bean>
+	<bean name="polloptionsDao" class="cn.jsprun.dao.impl.PolloptionsDaoImpl"/>
+	<bean name="postOperating" class="cn.jsprun.foreg.service.PostOperating"/>
+	
+	<bean name="memberMagic_MagiclogService" class="cn.jsprun.foreg.service.MemberMagic_MagiclogService"/>
+	<bean name="magicMarketService" class="cn.jsprun.foreg.service.MagicMarketService"/>
+	<bean name="pmsServer" class="cn.jsprun.foreg.service.PmsService"/>
+	<bean name="searchserver" class="cn.jsprun.foreg.service.SearchService"/>
+	<bean name="tagService" class="cn.jsprun.service.TagsService"/>
+	<bean name="paymentlogService" class="cn.jsprun.service.PaymentlogService"/>
+	<bean name="rewardService" class="cn.jsprun.service.RewardlogService"/>
+	<bean name="orderService" class="cn.jsprun.foreg.service.OrderService"/>
+	<bean name="faqService" class="cn.jsprun.foreg.service.FaqsService"/>
+	<bean name="statvarsService" class="cn.jsprun.foreg.service.StatvarsService"/>
+	<bean name="ratelogService" class="cn.jsprun.service.RatelogService"/>
+	<bean name="pollsService" class="cn.jsprun.foreg.service.PollsService"/>
+	<bean name="polloptionsService" class="cn.jsprun.foreg.service.PolloptionsService"/>
+	<bean name="tradesService" class="cn.jsprun.foreg.service.TradesService"/>
+	<bean name="topicAdminActionService" class="cn.jsprun.foreg.service.TopicAdminActionService"/>
+	<bean name="memberService" class="cn.jsprun.service.MemberService"/>
+	<bean name="otherSetService" class="cn.jsprun.service.OtherSetService"/>
+	<bean name="bbcodesService" class="cn.jsprun.service.BbcodesService"/>
+	<bean name="userGroupService" class="cn.jsprun.service.UserGroupService"/>
+	<bean name="postsService" class="cn.jsprun.service.PostsService"/>
+	<bean name="forumService" class="cn.jsprun.service.ForumService" />
+	<bean name="threadtypesService" class="cn.jsprun.service.ThreadtypesService"/>
+	<bean name="wordsService" class="cn.jsprun.service.WordsService"/>
+	<bean name="threadsService"	class="cn.jsprun.service.ThreadsService"/>
+	<bean name="attachtypesService" class="cn.jsprun.service.AttachtypesService"/>
+	<bean name="smiliesService"	class="cn.jsprun.service.SmiliesService"/>
+	<bean name="recyclebinService" class="cn.jsprun.service.RecyclebinService"/>
+	<bean name="imagetypesService" class="cn.jsprun.service.ImagetypesService"/>
+	<bean name="bannedService" class="cn.jsprun.service.BannedService"/>
+	<bean name="advSetService" class="cn.jsprun.service.AdvSetService"/>
+	<bean name="onLineSetService" class="cn.jsprun.service.OnLineSetService"/>
+	<bean name="cronsSetService" class="cn.jsprun.service.CronsSetService"/>
+	<bean name="creditsSetService" class="cn.jsprun.service.CreditsSetService" />
+	<bean name="projectService" class="cn.jsprun.service.ProjectService" />
+	<bean name="forumService" class="cn.jsprun.service.ForumService" />
+	<bean name="threadtypeService" class="cn.jsprun.service.ThreadtypeService" />
+	<bean name="forumfieldService" class="cn.jsprun.service.ForumfieldService" />
+	<bean name="typemodelService" class="cn.jsprun.service.TypemodelService" />
+	<bean name="typeoptionService" class="cn.jsprun.service.TypeoptionService" />
+	<bean name="typevarService" class="cn.jsprun.service.TypevarService" />
+	<bean name="settingService" class="cn.jsprun.service.SettingService" />
+	<bean name="styleService" class="cn.jsprun.service.StyleService" />
+	<bean name="templateService" class="cn.jsprun.service.TemplateService" />
+	<bean name="creditslogServer" class="cn.jsprun.service.CreditslogService"/>
+	<bean name="magiclogServer" class="cn.jsprun.service.MagiclogService"/>
+	<bean name="systemToolServer" class="cn.jsprun.service.SystemToolService"/>
+	<bean name="dataBaseService" class="cn.jsprun.service.DataBaseService" />
+	<bean name="attachments_postService" class="cn.jsprun.service.AttachmentsService"/>
+	<bean name="spaceServer" class="cn.jsprun.service.SpaceService"/>
+	<bean name="memberMagicsService"  class="cn.jsprun.foreg.service.MemberMagicsService"/>
+	<bean name="member_Magics_Magiclog_MemberMagicsService" class="cn.jsprun.foreg.service.Member_Magics_Magiclog_MemberMagicsService"/>
+	<bean name="wapService" class="cn.jsprun.foreg.service.WapService"/>
+</beans>
